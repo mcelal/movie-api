@@ -6,12 +6,14 @@ module.exports = () => {
     });
 
     mongoose.connection.on('open', () => {
-        console.log('MongoDB: Connected');
+        // console.log('MongoDB: Connected');
     });
 
     mongoose.connection.on('error', (err) => {
         console.log('MongoDB: Error', err);
     });
+
+    mongoose.set('useCreateIndex', true);
 
     mongoose.Promise = global.Promise;
 
